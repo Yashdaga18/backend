@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-09-22T03:28:37Z"
+  labels:
+    app: serverdeploy
+  name: serverservice
+  namespace: default
+  resourceVersion: "2902"
+  uid: ba2c76ed-05e2-455f-894d-8e0feb00f95e
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.101.69.34
+  clusterIPs:
+  - 10.101.69.34
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30958
+    port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: serverdeploy
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
