@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 4000; // Use environment variable for port
 
 const app = express();
 
-app.use(cors({ credentials: true, origin: 'http://13.49.60.104:3000' }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
